@@ -1,8 +1,8 @@
 package com.example.data.remote.api
 
-import com.example.data.remote.response.DayResponse
-import com.example.data.remote.response.HourResponse
-import com.example.data.remote.response.BaseResponse
+import com.example.data.remote.entity.DayResponse
+import com.example.data.remote.entity.HourResponse
+import com.example.data.remote.entity.BaseResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

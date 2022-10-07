@@ -22,7 +22,7 @@ class GetWeatherForWeekByRegionUseCase: KoinComponent {
         dateFrom: String,
         dateTo: String
         ): Response<Weather<Day<Hour>>> =
-            weatherRepository.getWeaterForRegion(
+            weatherRepository.getWeatherForRegion(
                 region = region,
                 dateFrom = dateFrom,
                 dateTo = dateTo

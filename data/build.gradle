@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -36,6 +37,10 @@ dependencies {
 
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
 
+    //Koin
+    implementation "io.insert-koin:koin-androidx-compose:$koin_android_compose_version"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_android_version"
 
     // Retrofit 2
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -45,6 +50,18 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp-bom:5.0.0-alpha.7")
     implementation("com.squareup.okhttp3:okhttp")
     implementation("com.squareup.okhttp3:logging-interceptor")
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+//ROOM
+    implementation "androidx.room:room-runtime:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-ktx:2.4.2"
+    implementation "androidx.room:room-paging:2.4.2"
+
+// Paging 3.0
+    implementation 'androidx.paging:paging-compose:1.0.0-alpha15'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

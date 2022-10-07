@@ -2,8 +2,6 @@ package com.example.data.service
 
 import com.example.data.mapper.WeatherResponseMapperService
 import com.example.data.remote.api.ApiInterface
-import com.example.data.remote.response.BaseResponse
-import com.example.data.remote.response.DayResponse
 import com.example.domain.entity.Day
 import com.example.domain.entity.Hour
 import com.example.domain.entity.Weather

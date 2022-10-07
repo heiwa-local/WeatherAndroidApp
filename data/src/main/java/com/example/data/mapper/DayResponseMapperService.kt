@@ -1,7 +1,7 @@
 package com.example.data.mapper
 
-import com.example.data.remote.response.DayResponse
-import com.example.data.remote.response.HourResponse
+import com.example.data.remote.entity.DayResponse
+import com.example.data.remote.entity.HourResponse
 import com.example.domain.entity.Day
 import com.example.domain.entity.Hour
 

@@ -5,6 +5,7 @@ buildscript {
         koin_android_version= "3.2.2"
         koin_android_compose_version= "3.2.1"
         koin_ktor= "3.2.2"
+        room_version = "2.4.3"
     }
     repositories{
         jcenter()

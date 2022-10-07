@@ -34,6 +34,7 @@ class MainActivity : ComponentActivity() {
         Log.e("HEIWA", "MainActivity created")
 
         viewModel.getStatus()
+        viewModel.insertWeather()
 
         setContent {
             WeatherAndroidAppTheme {
