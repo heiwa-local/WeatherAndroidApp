@@ -4,8 +4,7 @@ import androidx.room.*
 
 @Entity(tableName = "region_table")
 data class RegionPojo(
-    @PrimaryKey(autoGenerate = true) val id: Long,
-
-    val address: String,
+    @PrimaryKey val address: String,
     val description: String,
+    val updateDate: String
 )

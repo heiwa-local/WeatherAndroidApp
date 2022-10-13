@@ -5,7 +5,7 @@ data class Day<T>(
     val tempmax: Double,
     val tempmin: Double,
     val temp: Double,
-    val preciptype: List<String>?,
+    val icon: String,
     val description: String,
     val hours: List<T>
 )

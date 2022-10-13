@@ -23,7 +23,7 @@ open class WeatherResponseMapperService: BaseMapperRepository<BaseResponse<DayRe
             for (j in i.hours) {
                 hourList.add(j.let { hourMapper.transform(it)})
             }
-            dayList.add(Day(i.datetime,i.tempmax,i.tempmin,i.temp,i.preciptype,i.description, hourList))
+            dayList.add(Day(i.datetime,i.tempmax,i.tempmin,i.temp,i.icon,i.description, hourList))
             hourList = mutableListOf()
         }
         return Weather(type.address,type.description,dayList)

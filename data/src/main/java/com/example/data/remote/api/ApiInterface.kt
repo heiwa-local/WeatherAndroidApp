@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiInterface {
-    @GET("timeline/{region}/{dateFrom}/{dateTo}?unitGroup=metric&key=BHJQNUJAMSADETUULNK2GD7D7&contentType=json")
+    @GET("timeline/{region}/{dateFrom}/{dateTo}?unitGroup=metric&key=RJYAUBMMF56YCLSA97RELZ5AL&contentType=json")
     fun getWeatherForRegion(@Path("region") region: String,
                              @Path("dateFrom") dateFrom: String,
                              @Path("dateTo") dateTo: String): Call<BaseResponse<DayResponse<HourResponse>>>

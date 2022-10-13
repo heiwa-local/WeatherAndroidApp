@@ -17,14 +17,8 @@ class GetWeatherForWeekByRegionUseCase: KoinComponent {
         Log.e("AAA", "GetWeatherByRegionAndDateUseCase created")
     }
 //    private val repository: WeatherRepository = WeatherRepository
-    operator fun invoke(
-        region: String,
-        dateFrom: String,
-        dateTo: String
-        ): Response<Weather<Day<Hour>>> =
-            weatherRepository.getWeatherForRegion(
-                region = region,
-                dateFrom = dateFrom,
-                dateTo = dateTo
+    operator fun invoke(region: String): Weather<Day<Hour>> =
+            weatherRepository.getRegionWeatherFromLocalDB(
+                region = region
             )
 }

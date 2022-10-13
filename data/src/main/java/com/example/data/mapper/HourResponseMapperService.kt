@@ -7,12 +7,12 @@ open class HourResponseMapperService: BaseMapperRepository<HourResponse, Hour> {
     override fun transform(type: HourResponse) = Hour (
         type.datetime,
         type.temp,
-        type.preciptype
+        type.icon
     )
 
     override fun transformToRepository(type: Hour) = HourResponse (
         type.datetime,
         type.temp,
-        type.preciptype
+        type.icon
     )
 }

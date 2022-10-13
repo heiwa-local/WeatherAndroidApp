@@ -7,7 +7,7 @@ data class DayResponse<T>(
     @SerializedName("tempmax") val tempmax: Double,
     @SerializedName("tempmin") val tempmin: Double,
     @SerializedName("temp") val temp: Double,
-    @SerializedName("preciptype") val preciptype: List<String>?,
+    @SerializedName("icon") val icon: String,
     @SerializedName("description") val description: String,
     @SerializedName("hours") val hours: List<T>
 )

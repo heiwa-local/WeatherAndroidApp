@@ -9,5 +9,6 @@ class SaveWeatherToLocalDatabaseUseCase: KoinComponent {
 
     private val weatherRepository: WeatherRepository by inject()
 
-    operator fun invoke() = weatherRepository.insertWeather()
+    operator fun invoke() =
+        weatherRepository.insertFromRemoteToLocalDatabase(listOfRegions =  listOf("Moscow","London","New-york", "Detroit"), dateFrom = "2022-10-10", dateTo = "2022-10-17")
 }

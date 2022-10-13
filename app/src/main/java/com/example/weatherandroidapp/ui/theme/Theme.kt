@@ -5,11 +5,15 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
     primaryVariant = Purple700,
-    secondary = Teal200
+    secondary = Teal200,
 )
 
 private val LightColorPalette = lightColors(
@@ -27,21 +31,86 @@ private val LightColorPalette = lightColors(
     */
 )
 
+data class ExtendedColors(
+    val background: Color,
+    val onBackground: Color,
+    val borderColor: Color,
+    val textColor: Color,
+    val selectedColor: Color,
+    val unSelectedColor: Color,
+    val topBarColor: Color,
+    val navBarColor: Color
+)
+
+private val DarkExtendedColors by lazy {
+    ExtendedColors(
+        background = Color(0xFF585858),
+        onBackground = Color(0xFF001021),
+        borderColor = Color(0xFF161517),
+        textColor = Color(0xFFF2F3F4),
+        topBarColor = Color(0xFF292929),
+        navBarColor = Color(0xFF292929),
+        selectedColor = Color(0xFFF2F3F4),
+        unSelectedColor = Color(0x80F2F3F4)
+    )
+}
+
+private val LightExtendedColors by lazy {
+    ExtendedColors(
+        background = Color(0xFF97B4E0),
+        onBackground = Color(0xFF001021),
+        borderColor = Color.Black,
+        textColor = Color(0xFFF2F3F4),
+        topBarColor = Color(0xFF5B92E5),
+        navBarColor = Color(0xFF5B92E5),
+        selectedColor = Color(0xFFF2F3F4),
+        unSelectedColor = Color(0x80F2F3F4)
+    )
+}
+
+val LocalExtendedColors = staticCompositionLocalOf {
+    ExtendedColors(
+        background = Color.Unspecified,
+        onBackground = Color.Unspecified,
+        borderColor = Color.Black,
+        textColor = Color.Unspecified,
+        topBarColor = Color.Unspecified,
+        navBarColor = Color.Unspecified,
+        selectedColor = Color.Unspecified,
+        unSelectedColor = Color.Unspecified
+    )
+}
+
 @Composable
 fun WeatherAndroidAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
+    val extendedColors = if (darkTheme) {
+        DarkExtendedColors
     } else {
-        LightColorPalette
+        LightExtendedColors
     }
 
-    MaterialTheme(
-        colors = colors,
-        typography = Typography,
-        shapes = Shapes,
-        content = content
-    )
+    val colorPalette = when {
+        darkTheme -> DarkColorPalette
+        else -> LightColorPalette
+    }
+    CompositionLocalProvider(
+        LocalExtendedColors provides extendedColors,
+    ) {
+        MaterialTheme(
+            colors = colorPalette,
+            typography = Typography,
+            shapes = Shapes,
+            content = content
+        )
+    }
+}
+
+object ExtendedTheme {
+    val colors: ExtendedColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalExtendedColors.current
 }

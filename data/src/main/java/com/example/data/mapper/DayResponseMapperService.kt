@@ -14,7 +14,7 @@ open class DayResponseMapperService: BaseMapperRepository<DayResponse<HourRespon
         for (value in type.hours) {
             list.add(value.let { mapper.transform(it) })
         }
-        return Day<Hour>(type.datetime, type.tempmax, type.tempmin, type.temp, type.preciptype, type.description, list)
+        return Day<Hour>(type.datetime, type.tempmax, type.tempmin, type.temp, type.icon, type.description, list)
         }
 
     override fun transformToRepository(type: Day<Hour>): DayResponse<HourResponse> {

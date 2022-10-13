@@ -1,5 +1,6 @@
 package com.example.data.local.dto
 
+import androidx.annotation.Nullable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,6 +11,6 @@ data class HourWeatherPojo(
 
     val datetime: String,
     val temp: Double,
-    val preciptype: String?
+    val icon: String
 
 )

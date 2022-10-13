@@ -10,4 +10,20 @@ interface WeatherRepository {
     fun getWeatherForRegion(region: String, dateFrom: String, dateTo: String): Response<Weather<Day<Hour>>>
 
     fun insertWeather()
+
+    fun getListOfRegionsNames(): List<String?>
+
+    fun insertFromRemoteToLocalDatabase(listOfRegions: List<String?>, dateFrom: String, dateTo: String): Boolean
+
+    fun getListOfRegionsWithWeatherFromLocalDatabase(): List<Weather<Day<Int>>>
+
+    fun getRegionWeatherFromLocalDB(region: String): Weather<Day<Hour>>
+
+    fun clearLocalDB(): Boolean
+
+    fun checkForUpdate(dateFrom: String): Boolean
+
+    fun insertCurrentRegion(regionName: String)
+
+    fun getCurrentRegionWeather(): Weather<Day<Hour>>
 }
