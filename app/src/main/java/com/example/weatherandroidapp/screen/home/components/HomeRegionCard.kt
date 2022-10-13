@@ -11,11 +11,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -45,12 +48,12 @@ fun HomeRegionCard(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(300.0.dp)
+            .height(200.0.dp)
             .padding(10.0.dp)
-            .border(
-                width = 3.dp,
-                color = Color.White,
-                shape = RoundedCornerShape(8)
+            .shadow(
+                elevation = 10.dp,
+                spotColor = Color.Black,
+                shape = RoundedCornerShape(size = 8.dp)
             ),
         shape = RoundedCornerShape(8),
         onClick = {
@@ -68,7 +71,8 @@ fun HomeRegionCard(
             painter = painter,
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.blur(100.dp)
+            modifier = Modifier
+                .blur(10.dp)
         )
         Column(
             modifier = Modifier.padding(10.0.dp),
@@ -77,7 +81,8 @@ fun HomeRegionCard(
             Row(
                 modifier = Modifier
                     .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceAround
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = regionName,
@@ -97,8 +102,9 @@ fun HomeRegionCard(
             }
             Text(
                 text = description,
-                fontSize = 25.sp,
-                color = Color.White
+                fontSize = 15.sp,
+                color = Color.White,
+                textAlign = TextAlign.Center
             )
         }
 

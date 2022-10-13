@@ -1,24 +1,20 @@
 package com.example.weatherandroidapp.screen.home.viewmodel
 
 import android.util.Log
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.domain.entity.Day
-import com.example.domain.entity.Hour
 import com.example.domain.entity.Weather
 import com.example.domain.usecase.GetListOfRegionsWithWeatherFromLocalDatabaseUseCase
 import com.example.domain.usecase.GetWeatherForWeekByRegionUseCase
 import com.example.domain.usecase.SaveWeatherToLocalDatabaseUseCase
 import com.example.domain.usecase.UpdateLocalDatabaseUseCase
-import com.example.domain.utility.Response
 import com.example.weatherandroidapp.viewModel.base.BaseViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HomeViewModel(
+class RegionsViewModel(
     private val getWeatherForWeekByRegionUseCase: GetWeatherForWeekByRegionUseCase,
     private val saveWeatherToLocalDatabaseUseCase: SaveWeatherToLocalDatabaseUseCase,
     private val getListOfRegionsWithWeatherFromLocalDatabaseUseCase: GetListOfRegionsWithWeatherFromLocalDatabaseUseCase,

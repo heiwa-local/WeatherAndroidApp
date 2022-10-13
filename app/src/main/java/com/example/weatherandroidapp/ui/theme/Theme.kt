@@ -44,7 +44,7 @@ data class ExtendedColors(
 
 private val DarkExtendedColors by lazy {
     ExtendedColors(
-        background = Color(0xFF585858),
+        background = Color(0xFF292929),
         onBackground = Color(0xFF001021),
         borderColor = Color(0xFF161517),
         textColor = Color(0xFFF2F3F4),

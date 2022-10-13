@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -15,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -50,11 +53,24 @@ fun DetailScreen(
             TopAppBar(
                 title = {
                     Text(text = currentRegion.value ?: "No data",
-                        fontSize = 30.sp)
+                        fontSize = 30.sp
+                    )
+                },
+                navigationIcon = if (navController.previousBackStackEntry != null){
+                    {
+                        IconButton(onClick = { navController.navigateUp() }) {
+                            Icon(
+                                imageVector = Icons.Default.ArrowBack,
+                                contentDescription = "Back"
+                            )
+                        }
+                    }
+                } else {
+                    null
                 },
                 backgroundColor = ExtendedTheme.colors.topBarColor,
                 contentColor = ExtendedTheme.colors.textColor,
-                elevation = 12.dp
+                elevation = 12.dp,
             )
         },
         backgroundColor = ExtendedTheme.colors.background,
@@ -81,9 +97,9 @@ fun DetailScreen(
                 verticalArrangement = Arrangement.SpaceEvenly,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                DetailHeader(
-                    temperature = regionWeatherForWeek.value?.days?.get(0)?.temp
-                )
+//                DetailHeader(
+//                    temperature = regionWeatherForWeek.value?.days?.get(0)?.temp
+//                )
                 DetailDayColumn(days = regionWeatherForWeek.value?.days)
             }
         }

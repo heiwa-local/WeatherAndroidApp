@@ -9,10 +9,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.weatherandroidapp.ui.theme.ExtendedTheme
 
 @Composable
 fun DetailHeader(
@@ -28,8 +30,8 @@ fun DetailHeader(
     }
     Surface(modifier = Modifier
         .fillMaxWidth()
-        .padding(top = 10.0.dp, start = 10.0.dp, end = 10.0.dp)
-        .border(2.dp, Color.White, RoundedCornerShape(15)),
+        .padding(top = 10.0.dp, start = 10.0.dp, end = 10.0.dp),
+//        .border(2.dp, Color.White, RoundedCornerShape(15)),
         shape = RoundedCornerShape(15) ,
         color = Color.Black.copy(alpha = 0f)
     ){
@@ -42,7 +44,7 @@ fun DetailHeader(
                 text = temp,
                 fontSize = 80.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.White
+                color = ExtendedTheme.colors.textColor
             )
         }
     }

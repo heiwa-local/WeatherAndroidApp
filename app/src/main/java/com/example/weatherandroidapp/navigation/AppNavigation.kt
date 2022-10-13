@@ -5,7 +5,6 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -14,15 +13,15 @@ import com.example.weatherandroidapp.screen.current.CurrentScreen
 import com.example.weatherandroidapp.screen.current.viewmodel.CurrentViewModel
 import com.example.weatherandroidapp.screen.detail.DetailScreen
 import com.example.weatherandroidapp.screen.detail.viewmodel.DetailViewModel
-import com.example.weatherandroidapp.screen.home.HomeScreen
-import com.example.weatherandroidapp.screen.home.viewmodel.HomeViewModel
+import com.example.weatherandroidapp.screen.home.RegionsScreen
+import com.example.weatherandroidapp.screen.home.viewmodel.RegionsViewModel
 import com.example.weatherandroidapp.screen.settings.SettingsScreen
 import com.example.weatherandroidapp.screen.settings.viewmodel.SettingsViewModel
 
 @ExperimentalMaterialApi
 @Composable
 fun AppNavigation(
-    homeViewModel: HomeViewModel,
+    homeViewModel: RegionsViewModel,
     detailViewModel: DetailViewModel,
     currentViewModel: CurrentViewModel,
     settingsViewModel: SettingsViewModel
@@ -40,8 +39,8 @@ fun AppNavigation(
             startDestination = NavigationRouter.Home.route
         ) {
             composable(NavigationRouter.Home.route) {
-                HomeScreen(
-                    homeViewModel = homeViewModel,
+                RegionsScreen(
+                    regionsViewModel = homeViewModel,
                     navController = navController,
                     onSelectRegion = detailViewModel::setCurrentRegion
                 )

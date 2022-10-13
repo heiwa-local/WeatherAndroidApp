@@ -14,24 +14,21 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.core.app.ActivityCompat
-import androidx.lifecycle.lifecycleScope
 import com.example.weatherandroidapp.navigation.AppNavigation
 import com.example.weatherandroidapp.screen.current.viewmodel.CurrentViewModel
 import com.example.weatherandroidapp.screen.detail.viewmodel.DetailViewModel
-import com.example.weatherandroidapp.screen.home.viewmodel.HomeViewModel
+import com.example.weatherandroidapp.screen.home.viewmodel.RegionsViewModel
 import com.example.weatherandroidapp.screen.settings.viewmodel.SettingsViewModel
 import com.example.weatherandroidapp.ui.theme.WeatherAndroidAppTheme
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.Tasks.await
-import kotlinx.coroutines.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 @Suppress("DEPRECATION")
 class MainActivity : ComponentActivity() {
 
-    private val homeViewModel by viewModel<HomeViewModel>()
+    private val homeViewModel by viewModel<RegionsViewModel>()
     private val detailViewModel by viewModel<DetailViewModel>()
     private val currentViewModel by viewModel<CurrentViewModel>()
     private val settingsViewModel by viewModel<SettingsViewModel>()

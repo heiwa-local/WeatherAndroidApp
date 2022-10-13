@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.weatherandroidapp.R
+import com.example.weatherandroidapp.ui.theme.ExtendedTheme
 import java.time.format.DateTimeFormatter
 
 @Composable
@@ -28,37 +29,26 @@ fun DetailHourCard(
     if (temp > 0){
         temperature = "+$temp°C"
     }
-    Card(modifier = Modifier
-        .width(200.dp)
-        .height(100.dp)
-        .padding(10.dp)
-        .border(width = 3.dp, color = Color.White, shape = RoundedCornerShape(8)),
-        shape = RoundedCornerShape(8),
-        backgroundColor = Color.White.copy(alpha = 0f)
-        ) {
-//        if (preciptype == "rain"){
-//            Image(painter = painterResource(id = R.drawable.rain),
-//                contentDescription = null,
-//                contentScale = ContentScale.Crop)
-//        } else {
-//            Image(painter = painterResource(id = R.drawable.sun),
-//                contentDescription = null,
-//                contentScale = ContentScale.Crop)
-//        }
-        Column(
-            modifier = Modifier,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = time ?: "No data",
-                fontSize = 18.sp,
-                color = Color.White
-            )
-            Text(
-                text = temperature,
-                fontSize = 40.sp,
-                color = Color.White
-            )
-        }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(start = 15.dp, end = 15.dp)
+            .background(Color(0xFFFFFF).copy(alpha = 0f)),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = time,
+            fontSize = 18.sp,
+            color = ExtendedTheme.colors.textColor
+        )
+        Text(
+            text = temperature,
+            fontSize = 25.sp,
+            color = ExtendedTheme.colors.textColor,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
     }
+
 }

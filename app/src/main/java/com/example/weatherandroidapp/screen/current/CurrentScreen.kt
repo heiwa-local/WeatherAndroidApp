@@ -64,9 +64,9 @@ fun CurrentScreen(
                 verticalArrangement = Arrangement.SpaceEvenly,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                DetailHeader(
-                    temperature = currentRegionWeather.value?.days?.get(0)?.temp
-                )
+//                DetailHeader(
+//                    temperature = currentRegionWeather.value?.days?.get(0)?.temp
+//                )
                 DetailDayColumn(days = currentRegionWeather.value?.days)
             }
         }
