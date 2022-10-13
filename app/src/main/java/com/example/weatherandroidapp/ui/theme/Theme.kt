@@ -9,6 +9,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -39,7 +40,8 @@ data class ExtendedColors(
     val selectedColor: Color,
     val unSelectedColor: Color,
     val topBarColor: Color,
-    val navBarColor: Color
+    val navBarColor: Color,
+    val systemBarColor: Color
 )
 
 private val DarkExtendedColors by lazy {
@@ -51,7 +53,8 @@ private val DarkExtendedColors by lazy {
         topBarColor = Color(0xFF292929),
         navBarColor = Color(0xFF292929),
         selectedColor = Color(0xFFF2F3F4),
-        unSelectedColor = Color(0x80F2F3F4)
+        unSelectedColor = Color(0x80F2F3F4),
+        systemBarColor = Color(0xFF292929)
     )
 }
 
@@ -61,10 +64,12 @@ private val LightExtendedColors by lazy {
         onBackground = Color(0xFF001021),
         borderColor = Color.Black,
         textColor = Color(0xFFF2F3F4),
-        topBarColor = Color(0xFF5B92E5),
-        navBarColor = Color(0xFF5B92E5),
+        topBarColor = Color(0xFF97B4E0),
+        navBarColor = Color(0xFF97B4E0),
         selectedColor = Color(0xFFF2F3F4),
-        unSelectedColor = Color(0x80F2F3F4)
+        unSelectedColor = Color(0x80F2F3F4),
+        systemBarColor = Color(0xFF97B4E0)
+
     )
 }
 
@@ -77,7 +82,8 @@ val LocalExtendedColors = staticCompositionLocalOf {
         topBarColor = Color.Unspecified,
         navBarColor = Color.Unspecified,
         selectedColor = Color.Unspecified,
-        unSelectedColor = Color.Unspecified
+        unSelectedColor = Color.Unspecified,
+        systemBarColor = Color.Unspecified
     )
 }
 
@@ -90,6 +96,17 @@ fun WeatherAndroidAppTheme(
         DarkExtendedColors
     } else {
         LightExtendedColors
+    }
+
+    val systemUiController = rememberSystemUiController()
+    if(darkTheme){
+        systemUiController.setSystemBarsColor(
+            color = extendedColors.systemBarColor
+        )
+    }else{
+        systemUiController.setSystemBarsColor(
+            color = extendedColors.systemBarColor
+        )
     }
 
     val colorPalette = when {

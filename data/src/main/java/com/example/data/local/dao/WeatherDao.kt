@@ -1,10 +1,8 @@
 package com.example.data.local.dao
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
 import com.example.data.local.dto.CurrentRegionPojo
 import com.example.data.local.dto.DayWeatherPojo
 import com.example.data.local.dto.HourWeatherPojo
@@ -59,13 +57,4 @@ interface WeatherDao {
 
     @Query("SELECT * FROM currentRegion_table")
     fun getCurrentRegion(): List<CurrentRegionPojo>
-
-    @Update()
-    fun updateRegions(vararg regions: RegionPojo)
-
-    @Update
-    fun updateDaysWeather(daysWeather: List<DayWeatherPojo>)
-
-    @Update
-    fun updateHoursWeather(hoursWeather: List<HourWeatherPojo>)
 }

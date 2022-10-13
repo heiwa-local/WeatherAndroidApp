@@ -5,7 +5,6 @@ import com.example.domain.entity.Day
 import com.example.domain.entity.Hour
 import com.example.domain.entity.Weather
 import com.example.domain.repository.WeatherRepository
-import com.example.domain.utility.Response
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

@@ -1,6 +1,5 @@
 package com.example.domain.usecase
 
-import android.content.Context
 import com.example.domain.repository.WeatherRepository
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject

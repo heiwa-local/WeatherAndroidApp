@@ -1,6 +1,5 @@
 package com.example.data.local.dto
 
-import androidx.annotation.Nullable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

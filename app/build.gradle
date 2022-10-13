@@ -71,7 +71,8 @@ dependencies {
 
     //Swipe Refresh
     implementation 'com.google.accompanist:accompanist-swiperefresh:0.26.5-rc'
-    //    implementation "org.koin:koin-androidx-viewmodel:2.0.0-GA"
+
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.17.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'

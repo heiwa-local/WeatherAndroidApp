@@ -73,16 +73,4 @@ class LocalService(
     fun clearCurrentRegion(){
         database.weatherDao().clearCurrentRegion()
     }
-
-    fun updateRegions(regions: List<RegionPojo>){
-        database.weatherDao().updateRegions(*regions.toTypedArray())
-    }
-
-    fun updateDaysWeather(days: List<DayWeatherPojo>){
-        database.weatherDao().updateDaysWeather(days)
-    }
-
-    fun updateHoursWeather(hours: List<HourWeatherPojo>){
-        database.weatherDao().updateHoursWeather(hours)
-    }
 }

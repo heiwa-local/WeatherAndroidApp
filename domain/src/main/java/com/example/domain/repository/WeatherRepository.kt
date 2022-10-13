@@ -7,10 +7,6 @@ import com.example.domain.utility.Response
 
 interface WeatherRepository {
 
-    fun getWeatherForRegion(region: String, dateFrom: String, dateTo: String): Response<Weather<Day<Hour>>>
-
-    fun insertWeather()
-
     fun getListOfRegionsNames(): List<String?>
 
     fun insertFromRemoteToLocalDatabase(listOfRegions: List<String?>, dateFrom: String, dateTo: String): Boolean

@@ -15,19 +15,16 @@ import com.example.weatherandroidapp.screen.detail.DetailScreen
 import com.example.weatherandroidapp.screen.detail.viewmodel.DetailViewModel
 import com.example.weatherandroidapp.screen.home.RegionsScreen
 import com.example.weatherandroidapp.screen.home.viewmodel.RegionsViewModel
-import com.example.weatherandroidapp.screen.settings.SettingsScreen
-import com.example.weatherandroidapp.screen.settings.viewmodel.SettingsViewModel
 
 @ExperimentalMaterialApi
 @Composable
 fun AppNavigation(
     homeViewModel: RegionsViewModel,
     detailViewModel: DetailViewModel,
-    currentViewModel: CurrentViewModel,
-    settingsViewModel: SettingsViewModel
+    currentViewModel: CurrentViewModel
 ) {
     val navController = rememberNavController()
-    val ARGUMENT_KEY: String = "regionName"
+
     Scaffold(
         bottomBar = {
             AppBottomNavigationBar(navController)
@@ -55,12 +52,6 @@ fun AppNavigation(
                 CurrentScreen(
                     currentViewModel = currentViewModel,
                     navController = navController)
-            }
-            composable(NavigationRouter.Settings.route){
-                SettingsScreen(
-                    settingsViewModel = settingsViewModel,
-                    navController = navController
-                )
             }
         }
     }

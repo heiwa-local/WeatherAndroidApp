@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.weatherandroidapp.R
-import com.example.weatherandroidapp.screen.home.components.HomeRegionColumn
+import com.example.weatherandroidapp.screen.home.components.RegionColumn
 import com.example.weatherandroidapp.screen.home.viewmodel.RegionsViewModel
 import com.example.weatherandroidapp.ui.theme.ExtendedTheme
 import com.google.accompanist.swiperefresh.SwipeRefresh
@@ -25,7 +25,6 @@ fun RegionsScreen(
     regionsViewModel.getListOfRegionsWeather()
 
     val swipeRefreshState = rememberSwipeRefreshState(false)
-    val painter = painterResource(id = R.drawable.clear_day)
 
     Scaffold(
         topBar = {
@@ -41,18 +40,12 @@ fun RegionsScreen(
         },
         backgroundColor = ExtendedTheme.colors.background,
         content = {
-//            Image(
-//                modifier = Modifier
-//                    .fillMaxSize(),
-//                painter = painter,
-//                contentDescription = null,
-//                contentScale = ContentScale.Crop)
 
             SwipeRefresh(
                 state = swipeRefreshState,
                 onRefresh = {regionsViewModel.updateLocalDatabase() }
             ) {
-                HomeRegionColumn(
+                RegionColumn(
                     regions = listOfRegionsWeather.value,
                     navController = navController,
                     onSelectRegion = onSelectRegion

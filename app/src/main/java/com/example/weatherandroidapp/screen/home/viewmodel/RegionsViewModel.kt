@@ -15,7 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class RegionsViewModel(
-    private val getWeatherForWeekByRegionUseCase: GetWeatherForWeekByRegionUseCase,
     private val saveWeatherToLocalDatabaseUseCase: SaveWeatherToLocalDatabaseUseCase,
     private val getListOfRegionsWithWeatherFromLocalDatabaseUseCase: GetListOfRegionsWithWeatherFromLocalDatabaseUseCase,
     private val updateLocalDatabaseUseCase: UpdateLocalDatabaseUseCase
@@ -28,16 +27,6 @@ class RegionsViewModel(
     val coroutineExceptionHandler = CoroutineExceptionHandler{_, throwable ->
         throwable.printStackTrace()
     }
-
-    private val mutableStatusLD: MutableLiveData<List<String>> = MutableLiveData()
-    val statusLD: LiveData<List<String>>
-        get() { return mutableStatusLD }
-
-    fun getStatus() = launch(Dispatchers.IO + coroutineExceptionHandler) {
-        Log.e("HEIWA", "MainViewModel getStatus method started")
-        mutableStatusLD.postValue(listOf("Moscow", "London", "New-York","Moscow", "London", "New-York","Moscow", "London", "New-York","Moscow", "London", "New-York","Moscow", "London", "New-York","Moscow", "London", "New-York"))
-    }
-
 
     fun insertWeather() = launch(Dispatchers.IO + coroutineExceptionHandler) {
         saveWeatherToLocalDatabaseUseCase.invoke()

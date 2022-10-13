@@ -18,7 +18,6 @@ import com.example.weatherandroidapp.navigation.AppNavigation
 import com.example.weatherandroidapp.screen.current.viewmodel.CurrentViewModel
 import com.example.weatherandroidapp.screen.detail.viewmodel.DetailViewModel
 import com.example.weatherandroidapp.screen.home.viewmodel.RegionsViewModel
-import com.example.weatherandroidapp.screen.settings.viewmodel.SettingsViewModel
 import com.example.weatherandroidapp.ui.theme.WeatherAndroidAppTheme
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -31,12 +30,8 @@ class MainActivity : ComponentActivity() {
     private val homeViewModel by viewModel<RegionsViewModel>()
     private val detailViewModel by viewModel<DetailViewModel>()
     private val currentViewModel by viewModel<CurrentViewModel>()
-    private val settingsViewModel by viewModel<SettingsViewModel>()
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private lateinit var latitude: String
-    private lateinit var longitude: String
-
 
     @OptIn(ExperimentalMaterialApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,9 +41,7 @@ class MainActivity : ComponentActivity() {
         getLocation()
         Log.e("HEIWA", "MainActivity created")
 
-//        homeViewModel.getStatus()
         homeViewModel.insertWeather()
-//        if (homeViewModel.listOfRegionsWeatherLD.value != null)
 
         setContent {
             WeatherAndroidAppTheme {
@@ -56,7 +49,6 @@ class MainActivity : ComponentActivity() {
                     homeViewModel = homeViewModel,
                     detailViewModel = detailViewModel,
                     currentViewModel = currentViewModel,
-                    settingsViewModel = settingsViewModel
                 )
             }
         }
