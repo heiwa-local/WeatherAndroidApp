@@ -26,13 +26,14 @@ class WeatherRepositoryImpl(
         dateFrom: String,
         dateTo: String
     ): Boolean {
-        Log.e("HEIWA", listOfRegions.toString())
+        Log.e("HEIWA", "${listOfRegions.toString()} $dateFrom $dateTo")
 
         val listFromLocal = localService.getListOfRegionsNames()
 
         try {
             for (region in listOfRegions) {
                 val isInDB = listFromLocal.find { it == region }
+                Log.e("HEIWA", isInDB.toString())
                 if (region != null && isInDB == null) {
                     val weather = remoteService.getWeatherForRegion(
                         region = region,
@@ -44,7 +45,7 @@ class WeatherRepositoryImpl(
                         localService.insertRegion(
                             RegionPojo(
                                 address = weather.address,
-                                description = weather.description,
+                                description = weather.description ?: "No data",
                                 updateDate = dateFrom
                             )
                         )
@@ -59,7 +60,7 @@ class WeatherRepositoryImpl(
                                     tempmin = day.tempmin,
                                     temp = day.temp,
                                     icon = day.icon,
-                                    description = day.description
+                                    description = day.description ?: "No data"
                                 )
                             )
                             for (hour in day.hours) {
@@ -82,7 +83,7 @@ class WeatherRepositoryImpl(
                 }
             }
         } catch (e: Exception){
-            Log.e("HEIWA", "ERROR IN INSERT")
+            Log.e("HEIWA", " ${e.message} ERROR IN INSERT")
             return false
         }
         return true

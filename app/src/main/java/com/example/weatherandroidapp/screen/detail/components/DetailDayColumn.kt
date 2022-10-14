@@ -28,7 +28,7 @@ fun DetailDayColumn(
                 datetime = baseDay.datetime,
                 temp = baseDay.temp,
                 icon = baseDay.icon,
-                description = baseDay.description,
+                description = baseDay.description ?: "No data",
                 hours = baseDay.hours
             )
             LazyColumn(
@@ -41,7 +41,7 @@ fun DetailDayColumn(
                         datetime = it.datetime,
                         temp = it.temp,
                         icon = it.icon,
-                        description = it.description,
+                        description = it.description ?: "No data",
                         hours = it.hours
                     )
                 }

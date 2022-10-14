@@ -6,6 +6,6 @@ data class Day<T>(
     val tempmin: Double,
     val temp: Double,
     val icon: String,
-    val description: String,
+    val description: String?,
     val hours: List<T>
 )

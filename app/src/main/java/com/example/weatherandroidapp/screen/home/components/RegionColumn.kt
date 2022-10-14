@@ -40,7 +40,7 @@ fun RegionColumn(
                     regionName = it.address,
                     temp = it.days.get(0).temp,
                     icon = it.days.get(0).icon,
-                    description = it.description,
+                    description = it.description ?: "No data",
                     navController = navController,
                     clickAction = onSelectRegion
                 )
