@@ -10,7 +10,7 @@ internal class WeatherApiServiceTest {
 
     @Test
     fun getWeatherForecastForTheRegion(){
-        assertEquals(null, weatherApiService.getWeatherForecastForTheRegion("MoscowW"))
+        assertEquals(null, weatherApiService.getWeatherForecastForTheRegion("MoscowAA"))
         assertNotEquals(null ,weatherApiService.getWeatherForecastForTheRegion("Moscow"))
     }
 }
