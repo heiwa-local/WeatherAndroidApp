@@ -12,7 +12,8 @@ data class WeatherForTheDayResponse(
     @SerializedName("datetime") val datetime: String,
     @SerializedName("temp") val temp: Double,
     @SerializedName("icon") val icon: String,
-    @SerializedName("hours") val hours: List<WeatherForTheHourResponse>
+    @SerializedName("hours") val hours: List<WeatherForTheHourResponse>,
+    @SerializedName("description") val description: String
 )
 
 data class WeatherForTheHourResponse(

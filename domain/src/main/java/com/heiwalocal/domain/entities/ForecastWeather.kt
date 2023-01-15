@@ -5,7 +5,8 @@ import java.time.LocalTime
 
 data class ForecastWeather(
     val hours: List<ForecastWeatherByHours>,
-    val days: List<ForecastWeatherByDays>
+    val days: List<ForecastWeatherByDays>,
+    val description: String
 )
 
 data class ForecastWeatherByHours(

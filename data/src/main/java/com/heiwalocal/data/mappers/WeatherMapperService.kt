@@ -59,7 +59,8 @@ class WeatherMapperService: BaseMapperRepository <WeatherResponse, Weather> {
 
         val forecastWeather = ForecastWeather(
             hours = forecastHours,
-            days = forecastByDays
+            days = forecastByDays,
+            description = currentDay.description
         )
 
         return Weather(

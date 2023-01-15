@@ -1,6 +1,5 @@
 package com.heiwalocal.weatherandroidapp.screens.detail
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
@@ -54,18 +53,33 @@ fun DetailScreen(
                 Column(
                     modifier = Modifier
                         .fillMaxSize(),
-                    verticalArrangement = Arrangement.SpaceEvenly,
+//                    verticalArrangement = Arrangement.SpaceEvenly,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-
-                    DetailScreenCurrentWeatherItem(
-                        modifier = Modifier,
+                    Spacer(
+                        modifier = Modifier
+                            .fillMaxHeight(0.05f)
+                    )
+                    DetailScreenCurrentWeatherCard(
+                        modifier = Modifier
+                            .padding(top = 20.dp),
                         datetime = weather.current.datetime,
                         region = region,
-                        tempFeelsLike = weather.current.feelsLike ?: 0.0,
-                        windPower = weather.current.windSpeed ?: 0.0,
-                        rainChance = weather.current.pressure ?: 0.0,
+                        tempFeelsLike = weather.current.feelsLike,
+                        windPower = weather.current.windSpeed,
+                        pressure = weather.current.pressure,
                         temp = weather.current.temp.toString()
+                    )
+                    DetailScreenHourForecastCard(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                start = 10.dp,
+                                end = 10.dp,
+                                top = 30.dp
+                            ),
+                        hours = weather.forecast.hours,
+                        description = weather.forecast.description
                     )
                 }
             }
