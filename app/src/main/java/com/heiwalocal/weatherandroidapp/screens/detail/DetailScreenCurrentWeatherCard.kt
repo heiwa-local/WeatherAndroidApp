@@ -67,7 +67,7 @@ fun DetailScreenCurrentWeatherCard(
                     color = ExtendedTheme.colors.textTint
                 )
                 Text(
-                    text = "${windPower.toString()} m/s",
+                    text = "$windPower m/s",
                     style = ExtendedTheme.typography.body1,
                     color = ExtendedTheme.colors.text
                 )
@@ -83,7 +83,7 @@ fun DetailScreenCurrentWeatherCard(
                     color = ExtendedTheme.colors.textTint
                 )
                 Text(
-                    text = "${pressure.toString()} mmHg",
+                    text = "$pressure mmHg",
                     style = ExtendedTheme.typography.body1,
                     color = ExtendedTheme.colors.text
                 )

@@ -36,7 +36,7 @@ fun DetailScreenHourForecastCard(
     ) {
         Column(
             modifier = Modifier
-              .padding(10.dp),
+              .padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -47,12 +47,12 @@ fun DetailScreenHourForecastCard(
             Divider(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 10.dp, end = 10.dp),
-                color = WhiteTransparent
+                    .padding(top = 10.dp),
+                color = ExtendedTheme.colors.textTint
             )
             LazyRow(
                 modifier = Modifier
-                    .padding(top = 10.dp, end = 10.dp)
+                    .padding(top = 10.dp),
             ){
                 items(hours) { hour ->
                     DetailScreenHourForecastItem(

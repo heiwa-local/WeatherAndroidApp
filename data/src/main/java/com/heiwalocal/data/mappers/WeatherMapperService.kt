@@ -1,5 +1,6 @@
 package com.heiwalocal.data.mappers
 
+import com.heiwalocal.data.entities.WeatherForTheDayResponse
 import com.heiwalocal.data.entities.WeatherResponse
 import com.heiwalocal.domain.entities.*
 import java.time.LocalDate
@@ -18,7 +19,8 @@ class WeatherMapperService: BaseMapperRepository <WeatherResponse, Weather> {
         /** We divide the received weather forecast for
          * today and for the next nine days **/
         val currentDay = type.days[0]
-        val forecastDays = type.days.drop(0)
+        val forecastDays = type.days.toMutableList()
+        forecastDays.removeAt(0)
 
         /** Get the current date and time **/
         val currentDatetime = LocalDateTime.now()

@@ -52,7 +52,9 @@ fun DetailScreenHourForecastItem(
 
     Surface(
         modifier = Modifier
-            .padding(5.dp),
+            .padding(
+                end = 5.dp
+            ),
         color = surfaceColor,
         shape = RoundedCornerShape(10.dp)
     ) {
