@@ -29,7 +29,8 @@ internal class WeatherMapperServiceTest {
                         windSpeed = 20.0,
                         pressure = 1000.0
                     )
-                )
+                ),
+                description = "Partly cloudy"
             )
         )
     )
